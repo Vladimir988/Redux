@@ -12,6 +12,7 @@ html {
 
 }
 
-.cash {
+.cash,
+.customers {
     font-size: 30px;
 }
