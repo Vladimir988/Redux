@@ -1,8 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
 import './App.css'
 import {addCustomerAction, removeCustomerAction} from "./store/customerReducer";
-import {asyncIncrementCreator, decrementCreator, incrementCreator} from "./store/countReducer";
+import {asyncDecrementCreator, asyncIncrementCreator, decrementCreator, incrementCreator} from "./store/countReducer";
 import {fetchCustomers} from "./async/customers";
+import {fetchUsers} from "./store/userReducer";
 
 function App() {
   const dispatch = useDispatch();
@@ -61,8 +62,8 @@ function App() {
       <div className='inner'>
         <div className='count'>{count}</div>
         <button onClick={() => dispatch(asyncIncrementCreator())}>Increment ++</button>
-        <button onClick={() => dispatch(decrementCreator())}>Decrement --</button>
-        <button>Get Users --</button>
+        <button onClick={() => dispatch(asyncDecrementCreator())}>Decrement --</button>
+        <button onClick={() => dispatch(fetchUsers())}>Get Users</button>
         <br/>
         <br/>
         <div className='users'>
